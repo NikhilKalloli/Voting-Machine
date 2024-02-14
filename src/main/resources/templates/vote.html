@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Machine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Vote for Your Candidate (Voter #<span th:text="${voterNumber}"></span>)</h2>
+    <form method="post" action="/vote/submitVote">
+        <input type="hidden" name="voterNumber" th:value="${voterNumber}" />
+        <div class="form-group">
+            <label for="candidates">Select Candidate:</label>
+            <select class="form-control" id="candidates" name="selectedCandidate">
+                <option value="Candidate A">Candidate A</option>
+                <option value="Candidate B">Candidate B</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Vote</button>
+    </form>
+</div>
+
+</body>
+</html>
