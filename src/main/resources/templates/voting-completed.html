@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voting Machine - Completed</title>
+    <title>Voting Machine - Results</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
 <div class="container mt-5">
     <h2>Voting Completed</h2>
-    <p>Thank you for participating in the voting process. All voters have cast their votes.</p>
+    
+    <div th:if="${winner == 'Tie'}">
+        <p>The election ended in a tie! Thank you to all the voters for participating.</p>
+    </div>
+    
+    <div th:unless="${winner == 'Tie'}">
+        <p>The winner is: <strong th:text="${winner}"></strong>. Thank you to all the voters for participating.</p>
+    </div>
+    
+    <a href="/vote/start" class="btn btn-primary">Start a new vote</a>
 </div>
 
 </body>
